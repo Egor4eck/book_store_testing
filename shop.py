@@ -1,10 +1,10 @@
-
 import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.select import Select
 
 
 driver = webdriver.Chrome()
@@ -24,17 +24,48 @@ login = driver.find_element(By.CSS_SELECTOR, "p:nth-child(3) > input.woocommerce
 login.click()
 shop = driver.find_element(By.LINK_TEXT, "Shop")
 shop.click()
-html = driver.find_element(By.LINK_TEXT, "HTML")
-html.click()
-goods = driver.find_elements(By.CLASS_NAME, "status-publish")
-if len(goods) == 3:
-       print ("На странице 3 книги")
-else:
-       print("Ошибка. Количество книг:" + str(len(goods)))
+html5 = driver.find_element(By.CSS_SELECTOR, ".post-181.product")
+html5.click()
+title = WebDriverWait(driver, 20).until(
+       EC.text_to_be_present_in_element((By.CLASS_NAME, "product_title.entry-title"), "HTML5 Forms"))
 
 
+# import time
+#
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+#
+#
+# driver = webdriver.Chrome()
+# driver.maximize_window()
+#
+# driver.implicitly_wait(5)
+# driver.get("http://practice.automationtesting.in")
+# myacc = driver.find_element(By.LINK_TEXT, "My Account")
+# myacc.click()
+# email = driver.find_element(By.CSS_SELECTOR, "#username")
+# email.send_keys("egor4eck@gmail.com")
+# # time.sleep(3)
+# paswrd = driver.find_element(By.CSS_SELECTOR, "#password")
+# paswrd.send_keys("SLOZHNIYparol")
+# # time.sleep(3)
+# login = driver.find_element(By.CSS_SELECTOR, "p:nth-child(3) > input.woocommerce-Button.button")
+# login.click()
+# shop = driver.find_element(By.LINK_TEXT, "Shop")
+# shop.click()
+# html = driver.find_element(By.LINK_TEXT, "HTML")
+# html.click()
+# goods = driver.find_elements(By.CLASS_NAME, "status-publish")
+# if len(goods) == 3:
+#        print ("На странице 3 книги")
+# else:
+#        print("Ошибка. Количество книг:" + str(len(goods)))
+#
 
 
+#
 # import time
 #
 # from selenium import webdriver
@@ -72,7 +103,7 @@ else:
 #     EC.text_to_be_present_in_element_value((By.CLASS_NAME, "orderby"), "price-desc"))
 
 
-
+#
 # import time
 #
 # from selenium import webdriver
@@ -113,7 +144,7 @@ else:
 #     EC.element_to_be_clickable((By.CSS_SELECTOR, ".pp_close")))
 # cover_x.click()
 
-
+#
 # import time
 #
 # from selenium import webdriver
@@ -152,7 +183,7 @@ else:
 
 
 
-
+#
 # import time
 #
 # from selenium import webdriver
@@ -199,7 +230,7 @@ else:
 #       EC.text_to_be_present_in_element((By.CSS_SELECTOR, ".woocommerce-error > li"), "Please enter a coupon code."))
 
 
-
+#
 # import time
 #
 # from selenium import webdriver
